@@ -1,9 +1,9 @@
 // App.tsx
 import React from 'react';
-import Task21 from './Tasks/Task21';
+import Task23 from './Tasks/Task23';
 
 const App = () => {
-  return <Task21 />;
+  return <Task23 />;
 };
 
 export default App;
