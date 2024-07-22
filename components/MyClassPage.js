@@ -1,25 +1,13 @@
 // components/MyClassPage.js
 import React, { Component } from 'react';
-import { StyleSheet, Text, TextInput, View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 
 class MyClassPage extends Component {
-  componentDidMount() {
-    console.log('MyClassPage loaded');
-  }
-
-  componentWillUnmount() {
-    console.log('MyClassPage unloaded');
-  }
-
   render() {
     return (
       <View style={styles.container}>
         <Text style={styles.text}>Welcome to MyClassPage</Text>
-        <TextInput
-          style={styles.input}
-          placeholder="Type here"
-          onChangeText={this.props.onTextChange}
-        />
+        <Text style={styles.text} ref={this.props.forwardedRef}></Text>
       </View>
     );
   }
@@ -37,13 +25,10 @@ const styles = StyleSheet.create({
     fontSize: 20,
     textAlign: 'center',
   },
-  input: {
-    height: 40,
-    borderColor: 'gray',
-    borderWidth: 1,
-    marginTop: 20,
-    paddingLeft: 10,
-  },
 });
 
-export default MyClassPage;
+const MyClassPageWithRef = React.forwardRef((props, ref) => {
+  return <MyClassPage {...props} forwardedRef={ref} />;
+});
+
+export default MyClassPageWithRef;

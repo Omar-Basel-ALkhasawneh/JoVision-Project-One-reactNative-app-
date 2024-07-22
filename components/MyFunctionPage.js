@@ -1,26 +1,15 @@
 // components/MyFunctionPage.js
-import React, { useEffect } from 'react';
-import { StyleSheet, Text, TextInput, View } from 'react-native';
+import React, { forwardRef } from 'react';
+import { StyleSheet, Text, View } from 'react-native';
 
-const MyFunctionPage = ({ onTextChange }) => {
-  useEffect(() => {
-    console.log('MyFunctionPage loaded');
-    return () => {
-      console.log('MyFunctionPage unloaded');
-    };
-  }, []);
-
+const MyFunctionPage = forwardRef((props, ref) => {
   return (
     <View style={styles.container}>
       <Text style={styles.text}>Welcome to MyFunctionPage</Text>
-      <TextInput
-        style={styles.input}
-        placeholder="Type here"
-        onChangeText={onTextChange}
-      />
+      <Text style={styles.text} ref={ref}></Text>
     </View>
   );
-};
+});
 
 const styles = StyleSheet.create({
   container: {
@@ -33,13 +22,6 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 20,
     textAlign: 'center',
-  },
-  input: {
-    height: 40,
-    borderColor: 'gray',
-    borderWidth: 1,
-    marginTop: 20,
-    paddingLeft: 10,
   },
 });
 
