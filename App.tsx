@@ -1,9 +1,10 @@
 // App.tsx
+
 import React from 'react';
-import Task25 from './Tasks/Task25';
+import Task32 from './Tasks/Task32';
 
 const App = () => {
-  return <Task25 />;
+  return <Task32 />;
 };
 
 export default App;
