@@ -1,25 +1,22 @@
-import * as React from 'react';
+import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createStackNavigator } from '@react-navigation/stack';
+import CameraScreen from './screens/CameraScreen';
+import SensorsScreen from './screens/SensorsScreen.js';  // Fixed import
+import GalleryScreen from './screens/GalleryScreen';
+import SlideshowScreen from './screens/SlideshowScreen';
 
-import ScreenOne from './Screens/ScreenOne';
-import ScreenTwo from './Screens/ScreenTwo';
-import ScreenThree from './Screens/ScreenThree';
-import ScreenFour from './Screens/ScreenFour';
+const Stack = createStackNavigator();
 
-const Tab = createBottomTabNavigator();
-
-const App = () => {
+export default function App() {
   return (
     <NavigationContainer>
-      <Tab.Navigator>
-        <Tab.Screen name="ScreenOne" component={ScreenOne} />
-        <Tab.Screen name="ScreenTwo" component={ScreenTwo} />
-        <Tab.Screen name="ScreenThree" component={ScreenThree} />
-        <Tab.Screen name="ScreenFour" component={ScreenFour} />
-      </Tab.Navigator>
+      <Stack.Navigator initialRouteName="Camera">
+        <Stack.Screen name="Camera" component={CameraScreen} />
+        <Stack.Screen name="Sensors" component={SensorsScreen} />
+        <Stack.Screen name="Gallery" component={GalleryScreen} />
+        <Stack.Screen name="Slideshow" component={SlideshowScreen} />
+      </Stack.Navigator>
     </NavigationContainer>
   );
-};
-
-export default App;
+}
